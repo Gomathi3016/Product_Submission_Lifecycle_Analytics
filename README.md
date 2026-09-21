@@ -73,29 +73,20 @@ Business Insights
 The main relationships are:
 
 Products
-    |
     | Product_ID
-    ↓
 Submissions
-    |
     | Submission_ID
-    ↓
 Lifecycle Events
 
 Submissions
-    |
     | Region_ID
-    ↓
 Regions
 
 Products
-    |
     | Product_Category_ID
-    ↓
 Product Categories
 
 Submission Type
-    |
     ↓
 Submission Targets
 
@@ -127,14 +118,14 @@ For business analysis, the 150 records containing invalid submission-type or ris
 
 Overall submission performance:
 
-| Metric                                     |     Result |
-| Total submissions                          |     30,000 |
-| Average review time                        | 74.61 days |
-| Average target review time                 | 86.38 days |
-| Approval rate                              |     53.63% |
-| Delay rate                                 |     25.56% |
-| Average risk score                         |      42.78 |
-| Unique products represented in submissions |     12,996 |
+**Metric                                     -     Result**
+| Total submissions                          -     30,000 
+| Average review time                        - 74.61 days 
+| Average target review time                 - 86.38 days 
+| Approval rate                              -     53.63% 
+| Delay rate                                 -     25.56% 
+| Average risk score                         -      42.78 
+| Unique products represented in submissions -     12,996 
 
 Approval and delay rates are not complements because the dataset includes statuses such as Under Review and Withdrawn.
 
@@ -160,6 +151,7 @@ These are observed differences in the dataset and should not be interpreted as e
 Submission type showed a substantial difference in review duration and delay rates.
 
 | Submission Type    | Average Review Days | Target Days | Approval Rate | Delay Rate |
+
 | New Product        |               96.66 |         120 |        67.81% |      5.74% |
 | Product Extension  |               76.98 |          90 |        58.76% |     18.55% |
 | Label Update       |               57.21 |          60 |        41.16% |     42.65% |
@@ -172,6 +164,7 @@ Post-Market Updates showed the highest delay rate and were the only valid submis
 Higher-risk submissions were associated with longer review times and higher delay rates.
 
 | Risk Category | Average Risk Score | Average Review Days | Delay Rate |
+
 | Low           |              24.09 |               70.34 |     18.40% |
 | Medium        |              47.67 |               75.73 |     27.16% |
 | High          |              74.87 |               81.90 |     38.72% |
@@ -219,14 +212,14 @@ This demonstrates why analyzing region and submission type together can reveal p
 
 Average lifecycle stage duration:
 
-| Lifecycle Stage        | Average Duration Days |
+| Lifecycle Stage        - Average Duration Days |
 
-| Development            |                120.03 |
-| Post-Market Monitoring |                 90.05 |
-| Regulatory Review      |                 74.61 |
-| Submission Preparation |                 44.95 |
-| Approval               |                 14.97 |
-| Regulatory Submission  |                 12.03 |
+| Development            -                120.03 |
+| Post-Market Monitoring -                 90.05 |
+| Regulatory Review      -                 74.61 |
+| Submission Preparation -                 44.95 |
+| Approval               -                 14.97 |
+| Regulatory Submission  -                 12.03 |
 
 Development was the longest overall lifecycle stage, while Regulatory Review was a major regulatory-process component of total duration.
 
@@ -272,32 +265,6 @@ The dashboard includes:
 * Region and submission type analysis
 * Interactive slicers for filtering the analysis
 
-## Repository Structure
-
-Product_Submission_Lifecycle_Analytics/
-│
-├── data/
-│   ├── products.csv
-│   ├── submissions.csv
-│   ├── lifecycle_events.csv
-│   ├── regions.csv
-│   ├── product_categories.csv
-│   └── submission_targets.csv
-│
-├── sql/
-│   └── analysis_queries.sql
-│
-├── python/
-│   └── product_submission_lifecycle_analysis.ipynb
-│   └── product_submission_lifecycle_analysis.py
-│
-├── powerbi/
-│   └── Product_Submission Lifecycle Analytics.pbix
-│
-├── dashboard/
-│   └── dashboard.png
-│
-└── README.md
 
 
 ## Skills Demonstrated
@@ -354,7 +321,7 @@ The dashboard can support questions around:
 
 The findings describe patterns in the analytical dataset and do not establish causal relationships.
 
-##Key Insights
+**##Key Insights**
 Post-Market Updates show the highest delay rate at 56.34%, with an average review time of 47.57 days against a 45-day target.
 Australia has the highest overall delay rate at 35.18% and the longest average review time at 79.91 days. Its approval rate is 47.06%.
 The Australia + Post-Market Update combination is the strongest operational hotspot, with a 70.55% delay rate and 22.29% approval rate.
@@ -364,7 +331,7 @@ Regulatory Review is the main regulatory-process stage, averaging 74.61 days. De
 Submission performance varies substantially by region, while average risk scores remain relatively similar. This indicates that regional processes may be an important area for further investigation.
 Data quality requires attention. There are 7,918 missing approval dates, including 1,173 records where the submission status is not Under Review.
 
-##Recommendations
+**##Recommendations**
 Review the Post-Market Update workflow to identify causes of delays, particularly in Australia, Germany, and France.
 Investigate Australia-specific regulatory processes, documentation requirements, review queues, and resource allocation.
 Introduce additional monitoring for high-risk submissions so that potential delays can be identified earlier.
@@ -374,7 +341,7 @@ Monitor Region × Submission Type combinations rather than relying only on overa
 Track review performance against the target review time, rather than evaluating review duration alone. This gives better context for operational performance.
 Create recurring KPI monitoring for delay rate, approval rate, review variance, and high-risk submissions to identify changes over time.
 
-##Business takeaway
+**##Business takeaway**
 
 The analysis indicates that submission delays are concentrated around specific combinations of region and submission type, particularly Post-Market Updates in Australia. Risk level is also associated with review performance, while regional differences remain visible even with broadly similar risk profiles. These findings provide a basis for targeted process investigation, workload planning, and data-quality improvement.
 
